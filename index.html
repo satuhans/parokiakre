@@ -26,7 +26,6 @@ h1,h2,h3{font-family:'Cinzel',serif}
 .dropdown b{font-size:10px;color:var(--cok);display:block;margin:8px 0 3px 12px;letter-spacing:1px}
 .submenu{margin-left:10px;border-left:2px solid rgba(210,180,140,0.35);padding-left:8px}
 .mobile-btn{display:none;font-size:22px;cursor:pointer}
-/* BREAKING NEWS */
 .breaking{position:fixed;top:64px;left:0;width:100%;z-index:998;background:#c00;color:#fff;display:flex;align-items:center;overflow:hidden;height:36px;font-size:12px}
 .breaking-label{background:#000;color:#fff;padding:0 14px;height:100%;display:flex;align-items:center;font-weight:800;white-space:nowrap;animation:blink 1s infinite}
 @keyframes blink{50%{opacity:.6}}
@@ -41,6 +40,7 @@ h1,h2,h3{font-family:'Cinzel',serif}
 .btn{padding:12px 22px;border-radius:100px;font-weight:600;font-size:12.5px;display:inline-flex;gap:6px;cursor:pointer;border:none;transition:.3s;text-decoration:none}
 .btn-p{background:#4B2E1A;color:white;box-shadow:0 6px 16px rgba(75,46,26,0.2)}
 .btn-g{background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);border:1px solid rgba(139,90,43,0.2);color:var(--tua)}
+.btn-preview{background:#0a1a6b;color:#fff}
 .section{max-width:1280px;margin:auto;padding:70px 24px}
 .head{text-align:center;margin-bottom:36px}
 .head span{font-size:10px;letter-spacing:3px;color:var(--cok);display:block;margin-bottom:8px}
@@ -71,16 +71,17 @@ h1,h2,h3{font-family:'Cinzel',serif}
 .kop-edit label{font-size:11px;font-weight:700;display:block;margin:8px 0 4px}
 .kop-edit input{width:100%;padding:9px;border:1px solid #d2b48c;border-radius:8px;font-size:13px;font-family:inherit}
 .sert-panel{display:none}.sert-panel.active{display:block}
-.sert{width:210mm;height:297mm;margin:0 auto;background:#fff;background-image:url('bingkai.jpg');background-size:210mm 297mm;background-repeat:no-repeat;padding:16mm 19mm 15mm;position:relative;overflow:hidden;font-family:Arial,sans-serif}
+.sert{width:210mm;height:297mm;margin:0 auto;background:#fff;background-image:url('bingkai.jpg');background-size:210mm 297mm;background-repeat:no-repeat;padding:16mm 19mm 15mm;position:relative;overflow:hidden;font-family:Arial,sans-serif;display:none}
+.sert.show{display:block}
 .ring{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:120mm;max-width:70%;opacity:0.15;pointer-events:none;z-index:0}
 .isi-sert{position:relative;z-index:1;width:100%;height:100%;display:flex;flex-direction:column}
 .kop{display:flex;align-items:flex-start;gap:6px;text-align:center;justify-content:center}
 .kop img{width:20mm;height:20mm;object-fit:contain;flex-shrink:0;margin-top:0}
 .kop img.kiri{margin-left:5mm}.kop img.kanan{margin-right:5mm}
 .kop .t{flex:1;padding-top:0;margin-top:0;min-width:0}
-.kop b.judul{white-space:nowrap;font-size:12.3pt;letter-spacing:0;color:#0a1a6b;line-height:1.25;display:block;font-family:Arial,sans-serif}
-.kop b{font-size:12.5pt;color:#0a1a6b;line-height:1.25;display:block;font-family:Arial,sans-serif}
-.kop small{font-size:8.5pt;line-height:1.3;display:block;font-family:Arial,sans-serif}
+.kop b.judul{white-space:nowrap;font-size:12.3pt;letter-spacing:0;color:#0a1a6b;line-height:1.25;display:block;font-family:Arial,sans-serif;min-height:14pt}
+.kop b{font-size:12.5pt;color:#0a1a6b;line-height:1.25;display:block;font-family:Arial,sans-serif;min-height:14pt}
+.kop small{font-size:8.5pt;line-height:1.3;display:block;font-family:Arial,sans-serif;min-height:20pt}
 .garis-sert{height:2px;background:#1a3a8a;margin:3mm 0}
 .sert h1{text-align:center;font-size:24pt;color:#0a1a6b;margin:2mm 0 1mm;letter-spacing:1px;font-family:Arial,sans-serif}
 .ayat{text-align:center;font-style:italic;font-size:11pt;color:#0a1a6b;margin-bottom:3mm;font-family:Arial,sans-serif}
@@ -97,14 +98,14 @@ h1,h2,h3{font-family:'Cinzel',serif}
 .ttd{text-align:center;font-size:11.5pt;line-height:1.5;padding-right:8mm;font-family:Arial,sans-serif}.ttd b{color:#0a1a6b;text-decoration:underline}
 .isi-umum{font-size:13pt;line-height:1.9;color:#000;font-family:Arial,sans-serif;flex:1;text-align:justify}
 .isi-umum b{color:#0a1a6b}
-@media(max-width:900px){.menu{position:fixed;top:64px;right:-100%;width:80%;height:100vh;background:rgba(255,251,246,0.97);backdrop-filter:blur(20px);flex-direction:column;padding:24px;transition:.4s;gap:16px;align-items:flex-start}.menu.open{right:0}.mobile-btn{display:block}.dropdown{position:static;transform:none!important;opacity:1;display:none;background:rgba(245,233,216,0.6);width:100%}.menu li.open .dropdown{display:block}.hero-blur-top{top:70px}.hero-content{margin-top:150px}.foot{grid-template-columns:1fr 1fr}.form-grid{grid-template-columns:1fr 1fr}.sert{transform:scale(.48);transform-origin:top center;margin-bottom:-155mm}}
+@media(max-width:900px){.menu{position:fixed;top:64px;right:-100%;width:80%;height:100vh;background:rgba(255,251,246,0.97);backdrop-filter:blur(20px);flex-direction:column;padding:24px;transition:.4s;gap:16px;align-items:flex-start}.menu.open{right:0}.mobile-btn{display:block}.dropdown{position:static;transform:none!important;opacity:1;display:none;background:rgba(245,233,216,0.6);width:100%}.menu li.open .dropdown{display:block}.hero-blur-top{top:70px}.hero-content{margin-top:150px}.foot{grid-template-columns:1fr 1fr}.form-grid{grid-template-columns:1fr 1fr}.sert.show{transform:scale(.48);transform-origin:top center;margin-bottom:-155mm}}
 @media print{
   body{background:#fff;padding:0}
   .navbar,.breaking,.hero,.section:not(#cetak-sertifikat),.footer,.modal,.no-print-all{display:none!important}
   #cetak-sertifikat{padding:0!important}
   .form-cetak,.kop-edit,.tabs{display:none!important}
   .sert-panel{display:none!important}.sert-panel.active{display:block!important}
-  .sert{width:210mm;height:297mm;margin:0;transform:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sert{display:none!important}.sert.show{display:block!important;width:210mm;height:297mm;margin:0;transform:none;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   @page{size:A4 portrait;margin:0}
 }
 </style>
@@ -117,7 +118,6 @@ h1,h2,h3{font-family:'Cinzel',serif}
 <li id="adminMenu" style="display:none"><a onclick="toggleDropdown(this)" class="menu-login" style="background:#1a5c2a!important">👤 ADMIN ▾</a><div class="dropdown"><b id="adminNama">ADMIN</b><a onclick="openEditBerita()">✏️ Edit Berita / Breaking News</a><a onclick="logout()">🚪 Logout</a></div></li>
 </ul></div></nav>
 
-<!-- BREAKING NEWS -->
 <div class="breaking"><div class="breaking-label">🔴 BREAKING NEWS</div><marquee id="breakingText" scrollamount="5" onclick="scrollToSection('berita')">Memuat berita terbaru...</marquee><button onclick="openEditBerita()" id="btnEditBreaking" style="display:none;background:#fff;color:#c00;border:0;padding:4px 10px;border-radius:20px;font-weight:700;font-size:11px;margin-right:8px;cursor:pointer">✏️ EDIT</button></div>
 
 <section class="hero" id="beranda"><div class="hero-bg" id="heroBg"></div><div class="hero-overlay"></div><div class="hero-blur-top"><div style="font-family:'Cinzel';font-size:clamp(14px,2.5vw,20px);color:#8B5A2B">Selamat Datang di</div><div style="font-family:'Cinzel';font-size:clamp(20px,3.5vw,34px);font-weight:600;color:#4B2E1A">Paroki Akre Borong</div><div style="margin-top:6px;width:80px;height:2px;background:linear-gradient(90deg,#D2B48C,#8B5A2B);margin:auto"></div><div style="margin-top:6px;font-size:10px;letter-spacing:2px;color:#8B5A2B">KEUSKUPAN LODOS • MANGGARAI TIMUR • NTT</div></div><div class="hero-content"><h1>Rumah Iman,<br>Harapan & Kasih</h1><p>Altar suci asli Paroki Akre Borong - Foto asli dekorasi misa dengan lilin hangat & bunga. Tempat perjumpaan umat dengan Tuhan.</p><div style="margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn btn-p" onclick="showMisa('Buah','mingguan')">⛪ Jadwal Misa Hari Ini</button><button class="btn btn-g" onclick="openModal('sejarah-gereja')">📖 Sejarah Paroki</button><button class="btn btn-p" onclick="pilihSertifikat('nikah')">🖨️ Cetak Sertifikat</button></div><div style="margin-top:16px;font-size:10px;color:#8B5A2B" id="clock">Memuat WITA...</div></div></section>
@@ -128,15 +128,18 @@ h1,h2,h3{font-family:'Cinzel',serif}
 
 <!-- CETAK SERTIFIKAT -->
 <section class="section" id="cetak-sertifikat" style="background:linear-gradient(180deg,rgba(210,180,140,0.18),rgba(245,233,216,0.4));border-radius:28px">
-<div class="head"><span>MENU CETAK SERTIFIKAT</span><h2>🖨️ Cetak Sertifikat</h2><p>Edit kop, pilih sub menu, isi kolom kosong, lalu PRINT A4</p></div>
+<div class="head"><span>MENU CETAK SERTIFIKAT</span><h2>🖨️ Cetak Sertifikat</h2><p>Isi kop + data, klik PREVIEW baru sertifikat muncul, lalu PRINT A4</p></div>
+
+<!-- EDIT 4 BARIS KOP - KOSONG -->
 <div class="kop-edit">
-<h3 style="text-align:center;color:#4B2E1A;font-size:14px">✏️ EDIT 4 BARIS KOP SURAT</h3>
-<label>KOP BARIS 1</label><input id="kop1" value="KUASI PAROKI ST. HIERONIMUS EMILIANUS - JAWANG" oninput="updateKop()">
-<label>KOP BARIS 2</label><input id="kop2" value="KEVIKEPAN BORONG - KEUSKUPAN RUTENG" oninput="updateKop()">
-<label>KOP BARIS 3</label><input id="kop3" value="Alamat : Jl. Jati - Jengok, Dusun Jawang – Desa Golo Kantar - Kecamatan Borong" oninput="updateKop()">
-<label>KOP BARIS 4</label><input id="kop4" value="Kabupaten Manggarai Timur, Kode Pos. 86571 BORONG" oninput="updateKop()">
-<button class="btn btn-p" style="width:100%;justify-content:center;margin-top:10px" onclick="updateKop();alert('✅ Kop berhasil diupdate ke semua sertifikat!')">💾 SIMPAN KOP</button>
+<h3 style="text-align:center;color:#4B2E1A;font-size:14px">✏️ EDIT 4 BARIS KOP SURAT (KOSONG DULU)</h3>
+<label>KOP BARIS 1</label><input id="kop1" placeholder="Contoh: KUASI PAROKI ST. HIERONIMUS EMILIANUS - JAWANG" oninput="updateKop()">
+<label>KOP BARIS 2</label><input id="kop2" placeholder="Contoh: KEVIKEPAN BORONG - KEUSKUPAN RUTENG" oninput="updateKop()">
+<label>KOP BARIS 3</label><input id="kop3" placeholder="Contoh: Alamat : Jl. Jati - Jengok, Dusun Jawang – Desa Golo Kantar - Kecamatan Borong" oninput="updateKop()">
+<label>KOP BARIS 4</label><input id="kop4" placeholder="Contoh: Kabupaten Manggarai Timur, Kode Pos. 86571 BORONG" oninput="updateKop()">
+<button class="btn btn-p" style="width:100%;justify-content:center;margin-top:10px" onclick="updateKop()">💾 SIMPAN KOP</button>
 </div>
+
 <div class="tabs" id="sertTabs">
 <div class="tab" data-sert="baptis" onclick="pilihSertifikat('baptis')">💧 SURAT BABTIS</div>
 <div class="tab" data-sert="krisma" onclick="pilihSertifikat('krisma')">🔥 SERTIFIKAT KRISMA</div>
@@ -144,6 +147,8 @@ h1,h2,h3{font-family:'Cinzel',serif}
 <div class="tab active" data-sert="nikah" onclick="pilihSertifikat('nikah')">💍 SERTIFIKAT NIKAH</div>
 <div class="tab" data-sert="liber" onclick="pilihSertifikat('liber')">📋 STATUS LIBER</div>
 </div>
+
+<!-- BABTIS -->
 <div class="sert-panel" id="panel-baptis">
 <div class="form-cetak"><h3 style="text-align:center;color:#0a1a6b">SURAT BABTIS</h3><div class="form-grid">
 <div><label>NAMA LENGKAP</label><input id="b_nama" placeholder="Nama lengkap"></div>
@@ -155,9 +160,11 @@ h1,h2,h3{font-family:'Cinzel',serif}
 <div><label>IBU</label><input id="b_ibu" placeholder="Nama ibu"></div>
 <div><label>WALI BABTIS</label><input id="b_wali" placeholder="Wali babtis"></div>
 <div><label>OLEH PASTOR</label><input id="b_pastor" placeholder="Pastor"></div>
-</div><div style="display:flex;gap:10px;margin-top:14px"><button class="btn btn-p" style="flex:1;justify-content:center" onclick="buatBaptis()">💾 BUAT</button><button class="btn btn-g" style="flex:1;justify-content:center" onclick="window.print()">🖨️ PRINT A4</button></div></div>
-<div class="sert"><div class="isi-sert"><div class="kop"><img src="logo-paroki.png" class="kiri"><div class="t"><b class="judul kop-line1">KUASI PAROKI ST. HIERONIMUS EMILIANUS - JAWANG</b><b class="kop-line2">KEVIKEPAN BORONG - KEUSKUPAN RUTENG</b><small><span class="kop-line3">Alamat : Jl. Jati - Jengok, Dusun Jawang – Desa Golo Kantar - Kecamatan Borong</span><br><span class="kop-line4">Kabupaten Manggarai Timur, Kode Pos. 86571 BORONG</span></small></div><img src="logo-keuskupan.png" class="kanan"></div><div class="garis-sert"></div><h1>SURAT BABTIS</h1><div class="isi-umum">Yang bertanda tangan di bawah ini menerangkan bahwa pada tanggal <b id="o_b_tgl"></b> di Gereja <b id="o_b_gereja"></b> telah dibaptis secara Katolik seorang anak yang bernama <b id="o_b_nama" style="color:#c00;text-decoration:underline"></b>, lahir di <b id="o_b_tempat"></b> pada tanggal <b id="o_b_lahir"></b>, anak dari Ayah <b id="o_b_ayah"></b> dan Ibu <b id="o_b_ibu"></b>. Wali Baptis <b id="o_b_wali"></b>. Baptis dilayani oleh <b id="o_b_pastor"></b>.<br><br>Demikian surat ini dibuat untuk dipergunakan sebagaimana mestinya.</div><div class="footer-sert"><div class="kotak"><b>KUTIPAN SESUAI BUKU BABTIS</b><br>Paroki Jawang</div><div class="ttd">Jawang, ...................<br>PASTOR PAROKI,<br><br><br><b>___________________</b></div></div></div></div>
+</div><div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap"><button class="btn btn-preview" style="flex:1;justify-content:center" onclick="previewSertifikat('baptis')">👁️ PREVIEW SERTIFIKAT</button><button class="btn btn-g" style="flex:1;justify-content:center" onclick="window.print()">🖨️ PRINT A4</button></div></div>
+<div class="sert" id="sert-baptis"><div class="isi-sert"><div class="kop"><img src="logo-paroki.png" class="kiri"><div class="t"><b class="judul kop-line1"></b><b class="kop-line2"></b><small><span class="kop-line3"></span><br><span class="kop-line4"></span></small></div><img src="logo-keuskupan.png" class="kanan"></div><div class="garis-sert"></div><h1>SURAT BABTIS</h1><div class="isi-umum">Yang bertanda tangan di bawah ini menerangkan bahwa pada tanggal <b id="o_b_tgl"></b> di Gereja <b id="o_b_gereja"></b> telah dibaptis secara Katolik seorang anak yang bernama <b id="o_b_nama" style="color:#c00;text-decoration:underline"></b>, lahir di <b id="o_b_tempat"></b> pada tanggal <b id="o_b_lahir"></b>, anak dari Ayah <b id="o_b_ayah"></b> dan Ibu <b id="o_b_ibu"></b>. Wali Baptis <b id="o_b_wali"></b>. Baptis dilayani oleh <b id="o_b_pastor"></b>.<br><br>Demikian surat ini dibuat untuk dipergunakan sebagaimana mestinya.</div><div class="footer-sert"><div class="kotak"><b>KUTIPAN SESUAI BUKU BABTIS</b><br>Paroki Jawang</div><div class="ttd">Jawang, ...................<br>PASTOR PAROKI,<br><br><br><b>___________________</b></div></div></div></div>
 </div>
+
+<!-- KRISMA -->
 <div class="sert-panel" id="panel-krisma">
 <div class="form-cetak"><h3 style="text-align:center;color:#0a1a6b">SERTIFIKAT KRISMA</h3><div class="form-grid">
 <div><label>NAMA LENGKAP</label><input id="k_nama" placeholder="Nama lengkap"></div>
@@ -166,9 +173,11 @@ h1,h2,h3{font-family:'Cinzel',serif}
 <div><label>DI GEREJA</label><input id="k_gereja" placeholder="Di gereja"></div>
 <div><label>OLEH USKUP</label><input id="k_uskup" placeholder="Nama uskup"></div>
 <div><label>WALI KRISMA</label><input id="k_wali" placeholder="Wali krisma"></div>
-</div><div style="display:flex;gap:10px;margin-top:14px"><button class="btn btn-p" style="flex:1;justify-content:center" onclick="buatKrisma()">💾 BUAT</button><button class="btn btn-g" style="flex:1;justify-content:center" onclick="window.print()">🖨️ PRINT A4</button></div></div>
-<div class="sert"><div class="isi-sert"><div class="kop"><img src="logo-paroki.png" class="kiri"><div class="t"><b class="judul kop-line1">KUASI PAROKI ST. HIERONIMUS EMILIANUS - JAWANG</b><b class="kop-line2">KEVIKEPAN BORONG - KEUSKUPAN RUTENG</b><small><span class="kop-line3">Alamat : Jl. Jati - Jengok, Dusun Jawang – Desa Golo Kantar - Kecamatan Borong</span><br><span class="kop-line4">Kabupaten Manggarai Timur, Kode Pos. 86571 BORONG</span></small></div><img src="logo-keuskupan.png" class="kanan"></div><div class="garis-sert"></div><h1>SERTIFIKAT KRISMA</h1><div class="ayat">“Roh Kudus turun atas mereka” (Kis 2:3)</div><div class="isi-umum">Diberikan kepada <b id="o_k_nama" style="color:#c00;font-size:20pt;display:block;text-align:center;text-decoration:underline"></b> dengan nama Krisma <b id="o_k_namakrisma"></b>, telah menerima Sakramen Krisma pada tanggal <b id="o_k_tgl"></b> di Gereja <b id="o_k_gereja"></b>, dilayani oleh <b id="o_k_uskup"></b>, dengan wali Krisma <b id="o_k_wali"></b>.<br><br>Semoga Roh Kudus senantiasa membimbing dalam hidup beriman.</div><div class="footer-sert"><div class="kotak"><b>KUTIPAN SESUAI BUKU KRISMA</b><br>Paroki Jawang</div><div class="ttd">Jawang, ...................<br>PASTOR PAROKI,<br><br><br><b>___________________</b></div></div></div></div>
+</div><div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap"><button class="btn btn-preview" style="flex:1;justify-content:center" onclick="previewSertifikat('krisma')">👁️ PREVIEW SERTIFIKAT</button><button class="btn btn-g" style="flex:1;justify-content:center" onclick="window.print()">🖨️ PRINT A4</button></div></div>
+<div class="sert" id="sert-krisma"><div class="isi-sert"><div class="kop"><img src="logo-paroki.png" class="kiri"><div class="t"><b class="judul kop-line1"></b><b class="kop-line2"></b><small><span class="kop-line3"></span><br><span class="kop-line4"></span></small></div><img src="logo-keuskupan.png" class="kanan"></div><div class="garis-sert"></div><h1>SERTIFIKAT KRISMA</h1><div class="ayat">“Roh Kudus turun atas mereka” (Kis 2:3)</div><div class="isi-umum">Diberikan kepada <b id="o_k_nama" style="color:#c00;font-size:20pt;display:block;text-align:center;text-decoration:underline"></b> dengan nama Krisma <b id="o_k_namakrisma"></b>, telah menerima Sakramen Krisma pada tanggal <b id="o_k_tgl"></b> di Gereja <b id="o_k_gereja"></b>, dilayani oleh <b id="o_k_uskup"></b>, dengan wali Krisma <b id="o_k_wali"></b>.<br><br>Semoga Roh Kudus senantiasa membimbing dalam hidup beriman.</div><div class="footer-sert"><div class="kotak"><b>KUTIPAN SESUAI BUKU KRISMA</b><br>Paroki Jawang</div><div class="ttd">Jawang, ...................<br>PASTOR PAROKI,<br><br><br><b>___________________</b></div></div></div></div>
 </div>
+
+<!-- KPPK -->
 <div class="sert-panel" id="panel-kppk">
 <div class="form-cetak"><h3 style="text-align:center;color:#0a1a6b">SERTIFIKAT KPPK</h3><div class="form-grid">
 <div><label>NAMA LENGKAP</label><input id="p_nama" placeholder="Nama lengkap"></div>
@@ -177,9 +186,11 @@ h1,h2,h3{font-family:'Cinzel',serif}
 <div><label>TANGGAL KPPK</label><input id="p_tgl" placeholder="Tanggal KPPK"></div>
 <div><label>TEMPAT KPPK</label><input id="p_tempat" placeholder="Tempat KPPK"></div>
 <div><label>PEMBIMBING</label><input id="p_bimbing" placeholder="Pembimbing"></div>
-</div><div style="display:flex;gap:10px;margin-top:14px"><button class="btn btn-p" style="flex:1;justify-content:center" onclick="buatKppk()">💾 BUAT</button><button class="btn btn-g" style="flex:1;justify-content:center" onclick="window.print()">🖨️ PRINT A4</button></div></div>
-<div class="sert"><div class="isi-sert"><div class="kop"><img src="logo-paroki.png" class="kiri"><div class="t"><b class="judul kop-line1">KUASI PAROKI ST. HIERONIMUS EMILIANUS - JAWANG</b><b class="kop-line2">KEVIKEPAN BORONG - KEUSKUPAN RUTENG</b><small><span class="kop-line3">Alamat : Jl. Jati - Jengok, Dusun Jawang – Desa Golo Kantar - Kecamatan Borong</span><br><span class="kop-line4">Kabupaten Manggarai Timur, Kode Pos. 86571 BORONG</span></small></div><img src="logo-keuskupan.png" class="kanan"></div><div class="garis-sert"></div><h1>SERTIFIKAT KPPK</h1><div class="ayat">Kursus Persiapan Perkawinan Katolik</div><div class="isi-umum">Diberikan kepada <b id="o_p_nama" style="color:#c00;font-size:20pt;display:block;text-align:center;text-decoration:underline"></b> lahir tanggal <b id="o_p_lahir"></b>, asal Stasi <b id="o_p_stasi"></b>, telah mengikuti Kursus Persiapan Perkawinan Katolik (KPPK) pada tanggal <b id="o_p_tgl"></b> bertempat di <b id="o_p_tempat"></b>, dibimbing oleh <b id="o_p_bimbing"></b>.<br><br>Sertifikat ini berlaku sebagai syarat untuk melangsungkan Perkawinan Katolik.</div><div class="footer-sert"><div class="kotak"><b>NO. SERTIFIKAT</b><br>.... / KPPK / 2026</div><div class="ttd">Jawang, ...................<br>PEMBIMBING KPPK,<br><br><br><b>___________________</b></div></div></div></div>
+</div><div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap"><button class="btn btn-preview" style="flex:1;justify-content:center" onclick="previewSertifikat('kppk')">👁️ PREVIEW SERTIFIKAT</button><button class="btn btn-g" style="flex:1;justify-content:center" onclick="window.print()">🖨️ PRINT A4</button></div></div>
+<div class="sert" id="sert-kppk"><div class="isi-sert"><div class="kop"><img src="logo-paroki.png" class="kiri"><div class="t"><b class="judul kop-line1"></b><b class="kop-line2"></b><small><span class="kop-line3"></span><br><span class="kop-line4"></span></small></div><img src="logo-keuskupan.png" class="kanan"></div><div class="garis-sert"></div><h1>SERTIFIKAT KPPK</h1><div class="ayat">Kursus Persiapan Perkawinan Katolik</div><div class="isi-umum">Diberikan kepada <b id="o_p_nama" style="color:#c00;font-size:20pt;display:block;text-align:center;text-decoration:underline"></b> lahir tanggal <b id="o_p_lahir"></b>, asal Stasi <b id="o_p_stasi"></b>, telah mengikuti Kursus Persiapan Perkawinan Katolik (KPPK) pada tanggal <b id="o_p_tgl"></b> bertempat di <b id="o_p_tempat"></b>, dibimbing oleh <b id="o_p_bimbing"></b>.<br><br>Sertifikat ini berlaku sebagai syarat untuk melangsungkan Perkawinan Katolik.</div><div class="footer-sert"><div class="kotak"><b>NO. SERTIFIKAT</b><br>.... / KPPK / 2026</div><div class="ttd">Jawang, ...................<br>PEMBIMBING KPPK,<br><br><br><b>___________________</b></div></div></div></div>
 </div>
+
+<!-- NIKAH -->
 <div class="sert-panel active" id="panel-nikah">
 <div class="form-cetak"><div class="form-grid">
 <div><label>PADA TANGGAL</label><input id="tanggal" placeholder="Contoh: 06-Nov-26"></div>
@@ -204,9 +215,11 @@ h1,h2,h3{font-family:'Cinzel',serif}
 <div><label>NOMOR</label><input id="nomor_buku" placeholder="Nomor"></div>
 <div><label>TEMPAT / TANGGAL SURAT</label><input id="tgl_surat" placeholder="Tempat, tanggal surat"></div>
 <div><label>YANG MENYALIN</label><input id="menyalin" placeholder="Yang menyalin"></div>
-</div><div style="display:flex;gap:10px;margin-top:14px"><button class="btn btn-p" style="flex:1;justify-content:center" onclick="buat()">💾 BUAT / UPDATE SERTIFIKAT</button><button class="btn btn-g" style="flex:1;justify-content:center" onclick="window.print()">🖨️ PRINT A4</button></div></div>
-<div class="sert" id="sert"><img src="cincin.png" class="ring"><div class="isi-sert"><div class="kop"><img src="logo-paroki.png" class="kiri"><div class="t"><b class="judul kop-line1">KUASI PAROKI ST. HIERONIMUS EMILIANUS - JAWANG</b><b class="kop-line2">KEVIKEPAN BORONG - KEUSKUPAN RUTENG</b><small><span class="kop-line3">Alamat : Jl. Jati - Jengok, Dusun Jawang – Desa Golo Kantar - Kecamatan Borong</span><br><span class="kop-line4">Kabupaten Manggarai Timur, Kode Pos. 86571 BORONG</span></small></div><img src="logo-keuskupan.png" class="kanan"></div><div class="garis-sert"></div><h1>SURAT PERKAWINAN</h1><div class="ayat">“...Apa yang dipersatukan Allah, tidak boleh diceraikan manusia”. (Mat 19:6)</div><div class="isi-sertifikat"><div class="label-sert baris-sert"><span class="lbl">PADA TANGGAL</span><span class="titik">:</span><span id="o_tanggal"></span></div><div class="label-sert baris-sert"><span class="lbl">DI GEREJA</span><span class="titik">:</span><span id="o_gereja"></span></div><div class="nama-sert" id="o_pria"></div><div class="label-sert baris-sert"><span class="lbl">NOMOR PERMANDIAN</span><span class="titik">:</span><span id="o_baptis_pria"></span></div><div class="label-sert baris-sert"><span class="lbl">ANAK DARI</span><span class="titik">:</span><span></span></div><div class="sub-sert baris-sert"><span class="lbl">AYAH</span><span class="titik">:</span><span id="o_ayah_pria"></span></div><div class="sub-sert baris-sert"><span class="lbl">IBU</span><span class="titik">:</span><span id="o_ibu_pria"></span></div><div class="label-sert baris-sert"><span class="lbl">DARI PAROKI</span><span class="titik">:</span><span id="o_paroki_pria"></span></div><div class="nama-sert" id="o_wanita"></div><div class="label-sert baris-sert"><span class="lbl">NOMOR PERMANDIAN</span><span class="titik">:</span><span id="o_baptis_wanita"></span></div><div class="label-sert baris-sert"><span class="lbl">ANAK DARI</span><span class="titik">:</span><span></span></div><div class="sub-sert baris-sert"><span class="lbl">AYAH</span><span class="titik">:</span><span id="o_ayah_wanita"></span></div><div class="sub-sert baris-sert"><span class="lbl">IBU</span><span class="titik">:</span><span id="o_ibu_wanita"></span></div><div class="label-sert baris-sert"><span class="lbl">DARI PAROKI</span><span class="titik">:</span><span id="o_paroki_wanita"></span></div><div class="label-sert baris-sert" style="margin-top:2mm"><span class="lbl">DI HADAPAN IMAM</span><span class="titik">:</span><span id="o_imam"></span></div><div class="label-sert baris-sert"><span class="lbl">SAKSI 1</span><span class="titik">:</span><span id="o_saksi1"></span></div><div class="label-sert baris-sert"><span class="lbl">SAKSI 2</span><span class="titik">:</span><span id="o_saksi2"></span></div><div class="label-sert">DENGAN MEMPERGUNAKAN</div><div class="label-sert baris-sert"><span class="lbl">DISPENSASI</span><span class="titik">:</span><span id="o_dispensasi"></span></div><div class="label-sert baris-sert"><span class="lbl">PRIVILEGIUM</span><span class="titik">:</span><span id="o_privilegium"></span></div></div><div class="footer-sert"><div class="kotak"><b>KUTIPAN INI SESUAI DENGAN:</b><br><div class="baris-sert"><span class="lbl">BUKU PERKAWINAN</span><span class="titik">:</span><span id="o_buku"></span></div><div class="baris-sert"><span class="lbl">HALAMAN</span><span class="titik">:</span><span id="o_halaman"></span></div><div class="baris-sert"><span class="lbl">NOMOR</span><span class="titik">:</span><span id="o_nomor"></span></div></div><div class="ttd"><span id="o_tgl_surat"></span><br>YANG MENYALIN,<br><br><br><b id="o_menyalin"></b></div></div></div></div>
+</div><div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap"><button class="btn btn-preview" style="flex:1;justify-content:center" onclick="previewSertifikat('nikah')">👁️ PREVIEW SERTIFIKAT</button><button class="btn btn-g" style="flex:1;justify-content:center" onclick="window.print()">🖨️ PRINT A4</button></div></div>
+<div class="sert" id="sert"><img src="cincin.png" class="ring"><div class="isi-sert"><div class="kop"><img src="logo-paroki.png" class="kiri"><div class="t"><b class="judul kop-line1"></b><b class="kop-line2"></b><small><span class="kop-line3"></span><br><span class="kop-line4"></span></small></div><img src="logo-keuskupan.png" class="kanan"></div><div class="garis-sert"></div><h1>SURAT PERKAWINAN</h1><div class="ayat">“...Apa yang dipersatukan Allah, tidak boleh diceraikan manusia”. (Mat 19:6)</div><div class="isi-sertifikat"><div class="label-sert baris-sert"><span class="lbl">PADA TANGGAL</span><span class="titik">:</span><span id="o_tanggal"></span></div><div class="label-sert baris-sert"><span class="lbl">DI GEREJA</span><span class="titik">:</span><span id="o_gereja"></span></div><div class="nama-sert" id="o_pria"></div><div class="label-sert baris-sert"><span class="lbl">NOMOR PERMANDIAN</span><span class="titik">:</span><span id="o_baptis_pria"></span></div><div class="label-sert baris-sert"><span class="lbl">ANAK DARI</span><span class="titik">:</span><span></span></div><div class="sub-sert baris-sert"><span class="lbl">AYAH</span><span class="titik">:</span><span id="o_ayah_pria"></span></div><div class="sub-sert baris-sert"><span class="lbl">IBU</span><span class="titik">:</span><span id="o_ibu_pria"></span></div><div class="label-sert baris-sert"><span class="lbl">DARI PAROKI</span><span class="titik">:</span><span id="o_paroki_pria"></span></div><div class="nama-sert" id="o_wanita"></div><div class="label-sert baris-sert"><span class="lbl">NOMOR PERMANDIAN</span><span class="titik">:</span><span id="o_baptis_wanita"></span></div><div class="label-sert baris-sert"><span class="lbl">ANAK DARI</span><span class="titik">:</span><span></span></div><div class="sub-sert baris-sert"><span class="lbl">AYAH</span><span class="titik">:</span><span id="o_ayah_wanita"></span></div><div class="sub-sert baris-sert"><span class="lbl">IBU</span><span class="titik">:</span><span id="o_ibu_wanita"></span></div><div class="label-sert baris-sert"><span class="lbl">DARI PAROKI</span><span class="titik">:</span><span id="o_paroki_wanita"></span></div><div class="label-sert baris-sert" style="margin-top:2mm"><span class="lbl">DI HADAPAN IMAM</span><span class="titik">:</span><span id="o_imam"></span></div><div class="label-sert baris-sert"><span class="lbl">SAKSI 1</span><span class="titik">:</span><span id="o_saksi1"></span></div><div class="label-sert baris-sert"><span class="lbl">SAKSI 2</span><span class="titik">:</span><span id="o_saksi2"></span></div><div class="label-sert">DENGAN MEMPERGUNAKAN</div><div class="label-sert baris-sert"><span class="lbl">DISPENSASI</span><span class="titik">:</span><span id="o_dispensasi"></span></div><div class="label-sert baris-sert"><span class="lbl">PRIVILEGIUM</span><span class="titik">:</span><span id="o_privilegium"></span></div></div><div class="footer-sert"><div class="kotak"><b>KUTIPAN INI SESUAI DENGAN:</b><br><div class="baris-sert"><span class="lbl">BUKU PERKAWINAN</span><span class="titik">:</span><span id="o_buku"></span></div><div class="baris-sert"><span class="lbl">HALAMAN</span><span class="titik">:</span><span id="o_halaman"></span></div><div class="baris-sert"><span class="lbl">NOMOR</span><span class="titik">:</span><span id="o_nomor"></span></div></div><div class="ttd"><span id="o_tgl_surat"></span><br>YANG MENYALIN,<br><br><br><b id="o_menyalin"></b></div></div></div></div>
 </div>
+
+<!-- STATUS LIBER -->
 <div class="sert-panel" id="panel-liber">
 <div class="form-cetak"><h3 style="text-align:center;color:#0a1a6b">STATUS LIBER</h3><div class="form-grid">
 <div><label>NAMA LENGKAP</label><input id="l_nama" placeholder="Nama lengkap"></div>
@@ -215,8 +228,8 @@ h1,h2,h3{font-family:'Cinzel',serif}
 <div><label>ASAL PAROKI</label><input id="l_paroki" placeholder="Asal paroki"></div>
 <div><label>STATUS</label><input id="l_status" placeholder="Status"></div>
 <div><label>KEPERLUAN</label><input id="l_perlu" placeholder="Keperluan"></div>
-</div><div style="display:flex;gap:10px;margin-top:14px"><button class="btn btn-p" style="flex:1;justify-content:center" onclick="buatLiber()">💾 BUAT</button><button class="btn btn-g" style="flex:1;justify-content:center" onclick="window.print()">🖨️ PRINT A4</button></div></div>
-<div class="sert"><div class="isi-sert"><div class="kop"><img src="logo-paroki.png" class="kiri"><div class="t"><b class="judul kop-line1">KUASI PAROKI ST. HIERONIMUS EMILIANUS - JAWANG</b><b class="kop-line2">KEVIKEPAN BORONG - KEUSKUPAN RUTENG</b><small><span class="kop-line3">Alamat : Jl. Jati - Jengok, Dusun Jawang – Desa Golo Kantar - Kecamatan Borong</span><br><span class="kop-line4">Kabupaten Manggarai Timur, Kode Pos. 86571 BORONG</span></small></div><img src="logo-keuskupan.png" class="kanan"></div><div class="garis-sert"></div><h1>STATUS LIBER</h1><div class="ayat">Surat Keterangan Bebas Halangan Nikah</div><div class="isi-umum">Yang bertanda tangan di bawah ini menerangkan bahwa <b id="o_l_nama" style="color:#c00"></b>, lahir di <b id="o_l_tempat"></b> tanggal <b id="o_l_lahir"></b>, umat Paroki <b id="o_l_paroki"></b>, berstatus <b id="o_l_status"></b> dan bebas dari segala halangan untuk melangsungkan perkawinan Katolik.<br><br>Surat ini dibuat untuk keperluan <b id="o_l_perlu"></b> dan berlaku selama 6 bulan sejak diterbitkan.</div><div class="footer-sert"><div class="kotak"><b>NO. SURAT</b><br>.... / LIBER / 2026</div><div class="ttd">Jawang, ...................<br>PASTOR PAROKI,<br><br><br><b>___________________</b></div></div></div></div>
+</div><div style="display:flex;gap:10px;margin-top:14px;flex-wrap:wrap"><button class="btn btn-preview" style="flex:1;justify-content:center" onclick="previewSertifikat('liber')">👁️ PREVIEW SERTIFIKAT</button><button class="btn btn-g" style="flex:1;justify-content:center" onclick="window.print()">🖨️ PRINT A4</button></div></div>
+<div class="sert" id="sert-liber"><div class="isi-sert"><div class="kop"><img src="logo-paroki.png" class="kiri"><div class="t"><b class="judul kop-line1"></b><b class="kop-line2"></b><small><span class="kop-line3"></span><br><span class="kop-line4"></span></small></div><img src="logo-keuskupan.png" class="kanan"></div><div class="garis-sert"></div><h1>STATUS LIBER</h1><div class="ayat">Surat Keterangan Bebas Halangan Nikah</div><div class="isi-umum">Yang bertanda tangan di bawah ini menerangkan bahwa <b id="o_l_nama" style="color:#c00"></b>, lahir di <b id="o_l_tempat"></b> tanggal <b id="o_l_lahir"></b>, umat Paroki <b id="o_l_paroki"></b>, berstatus <b id="o_l_status"></b> dan bebas dari segala halangan untuk melangsungkan perkawinan Katolik.<br><br>Surat ini dibuat untuk keperluan <b id="o_l_perlu"></b> dan berlaku selama 6 bulan sejak diterbitkan.</div><div class="footer-sert"><div class="kotak"><b>NO. SURAT</b><br>.... / LIBER / 2026</div><div class="ttd">Jawang, ...................<br>PASTOR PAROKI,<br><br><br><b>___________________</b></div></div></div></div>
 </div>
 </section>
 
@@ -225,11 +238,7 @@ h1,h2,h3{font-family:'Cinzel',serif}
 <section class="section" id="berita"><div class="head"><span>BERITA TERBARU</span><h2>Berita Paroki</h2><p id="beritaInfo">Berita terbaru dari admin paroki</p></div><div class="grid" id="beritaGrid"></div><div style="text-align:center;margin-top:16px"><button class="btn btn-g" id="btnTambahBerita" style="display:none" onclick="openEditBerita()">✏️ Tambah / Edit Berita (Admin)</button></div></section>
 
 <div class="modal" id="modal" onclick="closeModal()"><div class="modal-box" onclick="event.stopPropagation()"><h3 id="modalTitle" style="font-family:'Cinzel';font-size:16px">Judul</h3><p id="modalDesc" style="margin-top:10px;font-size:13px;line-height:1.6;color:#5A3E28;white-space:pre-line">Deskripsi</p><div style="margin-top:16px;display:flex;gap:8px"><button class="btn btn-p" onclick="closeModal()">Tutup</button><button class="btn btn-g" onclick="shareContent()">Bagikan</button></div></div></div>
-
-<!-- MODAL LOGIN -->
 <div class="modal" id="loginModal" onclick="closeLogin()"><div class="modal-box" onclick="event.stopPropagation()"><h3 style="font-family:'Cinzel'">🔐 LOGIN ADMIN</h3><p style="font-size:12px;color:#666;margin-top:6px">Hanya admin yang bisa edit Berita & Breaking News<br>Username: <b>admin</b> | Password: <b>admin123</b></p><label style="font-size:11px;font-weight:700">USERNAME</label><input id="loginUser" placeholder="admin"><label style="font-size:11px;font-weight:700">PASSWORD</label><input id="loginPass" type="password" placeholder="admin123"><p id="loginError" style="color:#c00;font-size:12px;display:none">❌ Username / password salah!</p><div style="display:flex;gap:8px;margin-top:12px"><button class="btn btn-p" style="flex:1;justify-content:center" onclick="doLogin()">Masuk</button><button class="btn btn-g" style="flex:1;justify-content:center" onclick="closeLogin()">Batal</button></div></div></div>
-
-<!-- MODAL EDIT BERITA -->
 <div class="modal" id="beritaModal" onclick="closeEditBerita()"><div class="modal-box" onclick="event.stopPropagation()"><h3 style="font-family:'Cinzel'">✏️ EDIT BERITA / BREAKING NEWS</h3><p style="font-size:12px;color:#666">Berita ini tampil di Breaking News Beranda & Section Berita</p><label style="font-size:11px;font-weight:700">JUDUL BERITA</label><input id="beritaJudul" placeholder="Contoh: Tahbisan 12 Imam Baru"><label style="font-size:11px;font-weight:700">ISI BERITA</label><textarea id="beritaIsi" rows="4" placeholder="Tulis isi berita..."></textarea><label style="font-size:11px;font-weight:700">TANGGAL</label><input id="beritaTanggal" placeholder="Contoh: 3 Nov 2026"><button class="btn btn-p" style="width:100%;justify-content:center;margin-top:10px" onclick="tambahBerita()">➕ Tambah Berita</button><div id="listBeritaAdmin" style="margin-top:14px"></div><button class="btn btn-g" style="width:100%;justify-content:center;margin-top:10px" onclick="closeEditBerita()">Selesai</button></div></div>
 
 <footer class="footer"><div class="foot"><div><h4>PAROKI AKRE BORONG</h4><p style="font-size:11px;color:#D2B48C">Borong, Manggarai Timur, NTT<br>KEUSKUPAN LODOS<br>Foto altar asli by Umat</p></div><div><h4>MISA</h4><a onclick="showMisa('Daun','mingguan')">Daun</a><a onclick="showMisa('Buah','mingguan')">Buah</a><a onclick="showMisa('Akar','mingguan')">Akar</a></div><div><h4>SAKRAMEN</h4><a onclick="openModal('baptis')">Baptis</a><a onclick="openModal('nikah')">Nikah</a><a onclick="pilihSertifikat('nikah')">Cetak Sertifikat</a></div><div><h4>BERITA</h4><a onclick="openModal('berita1')">Tahbisan</a><a>Renovasi</a></div></div><div class="copy">© 2026 PAROKI AKRE BORONG • Foto altar asli • Coklat Putih Blur + JavaScript</div></footer>
@@ -266,32 +275,40 @@ function pilihSertifikat(jenis){
   document.querySelectorAll('#sertTabs .tab').forEach(t=>t.classList.toggle('active',t.dataset.sert===jenis));
   const panel=document.getElementById('panel-'+jenis); if(panel) panel.classList.add('active');
   scrollToSection('cetak-sertifikat');
+  // Sembunyikan preview saat ganti jenis
+  document.querySelectorAll('.sert').forEach(s=>s.classList.remove('show'));
+}
+function previewSertifikat(jenis){
+  updateKop();
+  if(jenis==='nikah') buat();
+  if(jenis==='baptis') buatBaptis();
+  if(jenis==='krisma') buatKrisma();
+  if(jenis==='kppk') buatKppk();
+  if(jenis==='liber') buatLiber();
+  // Sembunyikan semua, tampilkan yang dipilih saja
+  document.querySelectorAll('.sert').forEach(s=>s.classList.remove('show'));
+  let target = jenis==='nikah' ? document.getElementById('sert') : document.getElementById('sert-'+jenis);
+  if(target){ target.classList.add('show'); target.scrollIntoView({behavior:'smooth'}); }
 }
 function buat(){
   o('o_tanggal',v('tanggal')); o('o_gereja',v('gereja')); o('o_pria',v('pria')); o('o_baptis_pria',v('baptis_pria')); o('o_ayah_pria',v('ayah_pria')); o('o_ibu_pria',v('ibu_pria')); o('o_paroki_pria',v('paroki_pria'));
   o('o_wanita',v('wanita')); o('o_baptis_wanita',v('baptis_wanita')); o('o_ayah_wanita',v('ayah_wanita')); o('o_ibu_wanita',v('ibu_wanita')); o('o_paroki_wanita',v('paroki_wanita'));
   o('o_imam',v('imam')); o('o_saksi1',v('saksi1')); o('o_saksi2',v('saksi2')); o('o_dispensasi',v('dispensasi')); o('o_privilegium',v('privilegium'));
   o('o_buku',v('buku')); o('o_halaman',v('halaman')); o('o_nomor',v('nomor_buku')); o('o_tgl_surat',v('tgl_surat')); o('o_menyalin',v('menyalin'));
-  document.getElementById('sert').scrollIntoView({behavior:'smooth'});
 }
 function buatBaptis(){o('o_b_nama',v('b_nama'));o('o_b_lahir',v('b_lahir'));o('o_b_tempat',v('b_tempat'));o('o_b_tgl',v('b_tgl'));o('o_b_gereja',v('b_gereja'));o('o_b_ayah',v('b_ayah'));o('o_b_ibu',v('b_ibu'));o('o_b_wali',v('b_wali'));o('o_b_pastor',v('b_pastor'))}
 function buatKrisma(){o('o_k_nama',v('k_nama'));o('o_k_namakrisma',v('k_namakrisma'));o('o_k_tgl',v('k_tgl'));o('o_k_gereja',v('k_gereja'));o('o_k_uskup',v('k_uskup'));o('o_k_wali',v('k_wali'))}
 function buatKppk(){o('o_p_nama',v('p_nama'));o('o_p_lahir',v('p_lahir'));o('o_p_stasi',v('p_stasi'));o('o_p_tgl',v('p_tgl'));o('o_p_tempat',v('p_tempat'));o('o_p_bimbing',v('p_bimbing'))}
 function buatLiber(){o('o_l_nama',v('l_nama'));o('o_l_lahir',v('l_lahir'));o('o_l_tempat',v('l_tempat'));o('o_l_paroki',v('l_paroki'));o('o_l_status',v('l_status'));o('o_l_perlu',v('l_perlu'))}
-updateKop();
-// ===== LOGIN + BERITA / BREAKING NEWS =====
 let beritaList = JSON.parse(localStorage.getItem('berita_paroki')||'null') || [
   {judul:'Tahbisan & Misa Hari Raya', isi:'Altar dengan dekorasi meriah - 12 imam baru 2026', tanggal:'3 Nov 2026'},
   {judul:'Renovasi Atap 90%', isi:'Gotong royong umat - Renovasi atap gereja sudah 90%', tanggal:'2 Nov 2026'},
   {judul:'OMK Ziarah', isi:'45 OMK ke Gua Maria Lourdes', tanggal:'1 Nov 2026'}
 ];
 function renderBerita(){
-  // Breaking News
   document.getElementById('breakingText').innerText = beritaList.map(b=>' • '+b.judul+' - '+b.isi).join('  |  ');
-  // Grid Berita
   const grid=document.getElementById('beritaGrid');
   grid.innerHTML = beritaList.map((b,i)=>`<div class="card" onclick="openModalBerita(${i})"><h3>${b.judul}</h3><p style="font-size:11px;color:#7A5A3E">${b.isi}</p><p style="font-size:10px;color:#999;margin-top:6px">${b.tanggal}</p></div>`).join('');
-  // List admin
   const list=document.getElementById('listBeritaAdmin');
   if(list) list.innerHTML = beritaList.map((b,i)=>`<div style="background:#fff;padding:10px;border-radius:10px;border:1px solid #eee;margin-bottom:8px"><b style="font-size:12px">${b.judul}</b><br><span style="font-size:11px;color:#666">${b.isi}</span><br><button onclick="hapusBerita(${i})" style="background:#c00;color:#fff;border:0;padding:4px 10px;border-radius:20px;font-size:11px;margin-top:6px;cursor:pointer">🗑️ Hapus</button></div>`).join('');
 }
